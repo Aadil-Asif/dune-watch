@@ -1,17 +1,8 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-07-29T18:08:59+00:00",
+  "last_run": "2026-07-29T19:53:35+00:00",
   "seeded": true,
   "showtimes": {
-    "hacienda:2026-07-29+10:50": {
-      "date": "2026-07-29",
-      "status": "soldout",
-      "theater": "Regal Hacienda Crossings (Dublin)",
-      "theater_key": "hacienda",
-      "time": "10:50a",
-      "title": "The Odyssey (2026)",
-      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-07-29%2B10%3A50&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-a1d564c02624cf42a013f257df4872fd3578e1b7704310a4e72f0cd2dfe1b610"
-    },
     "hacienda:2026-07-29+14:50": {
       "date": "2026-07-29",
       "status": "soldout",
