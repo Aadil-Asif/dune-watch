@@ -60,6 +60,12 @@ NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "")
 NTFY_TOKEN = os.environ.get("NTFY_TOKEN", "")
 
+# Booking for a group, so a single returned seat is no use -- off by default.
+ALERT_FREED = os.environ.get("ALERT_FREED", "0") not in ("0", "", "false", "no")
+# Set on the GitHub Actions fallback so its alerts are visibly the backup's and
+# don't buzz at the same urgency as the local daemon's.
+WATCHER_LABEL = os.environ.get("WATCHER_LABEL", "").strip()
+
 API = "https://www.fandango.com/napi/theaterMovieShowtimes/{tid}?startDate={day}"
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -194,6 +200,9 @@ def notify(title: str, message: str, *, priority: int = 4,
            tags: list[str] | None = None, click: str | None = None,
            dry_run: bool = False) -> None:
     """Publish to ntfy via its JSON API (handles UTF-8; headers would not)."""
+    if WATCHER_LABEL:
+        title = f"[{WATCHER_LABEL}] {title}"
+        priority = min(priority, 3)
     if dry_run or not NTFY_TOPIC:
         print(f"\n--- ntfy ({'dry-run' if dry_run else 'NO TOPIC SET'}) ---")
         print(f"{title}\n{message}\n{click or ''}")
@@ -243,11 +252,43 @@ def time_key(label: str) -> int:
         return 10**6
 
 
+def digest(events: list[dict], dry_run: bool) -> None:
+    """A whole week landing at once should be one message, not fifteen."""
+    by_theater: dict[str, list[dict]] = {}
+    for ev in events:
+        by_theater.setdefault(ev["theater"], []).append(ev)
+
+    lines = []
+    for theater, shows in sorted(by_theater.items()):
+        days = sorted({s["date"] for s in shows})
+        span = pretty_day(days[0])
+        if len(days) > 1:
+            span += f" – {pretty_day(days[-1])}"
+        lines.append(f"{theater}\n  {span} · {len(shows)} showtime(s)")
+
+    first = min(events, key=lambda s: (s["date"], time_key(s["time"])))
+    by_key = {t["key"]: t for t in TARGETS}
+    target = by_key.get(first["theater_key"])
+    click = theater_page_url(target, first["date"]) if target else first["url"]
+
+    notify(
+        f"🎟️ New IMAX 70mm dates up — {len(events)} showtimes",
+        "\n".join(lines) + "\n\nBook now — these go fast.",
+        priority=5, tags=["film_projector"], click=click, dry_run=dry_run,
+    )
+
+
 def group_and_send(events: list[dict], kind: str, dry_run: bool) -> int:
     """One message per (theater, date) so the tap-through is a real booking link."""
     buckets: dict[tuple[str, str], list[dict]] = {}
     for ev in events:
         buckets.setdefault((ev["theater"], ev["date"]), []).append(ev)
+
+    # Past a certain size, per-day messages stop being useful and start being
+    # a notification storm you'd swipe away without reading.
+    if kind == "new" and len(buckets) > MAX_MESSAGES:
+        digest(events, dry_run)
+        return 1
 
     sent = 0
     for (theater, day), shows in sorted(buckets.items(), key=lambda kv: kv[0][1]):
@@ -350,12 +391,13 @@ def main() -> int:
             priority=3, tags=["eye"], dry_run=args.dry_run,
         )
     else:
-        print(f"Diff: {len(new_events)} new, {len(freed_events)} freed")
-        if freed_events:
+        print(f"Diff: {len(new_events)} new, {len(freed_events)} freed"
+              f"{'' if ALERT_FREED else ' (freed alerts off)'}")
+        if freed_events and ALERT_FREED:
             group_and_send(freed_events, "freed", args.dry_run)
         if new_events:
             group_and_send(new_events, "new", args.dry_run)
-        if not new_events and not freed_events:
+        if not new_events and not (freed_events and ALERT_FREED):
             print("No change.")
 
     if args.dry_run:

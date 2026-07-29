@@ -8,12 +8,24 @@ Polls Fandango every ~10 minutes for **The Odyssey** in **IMAX 70mm** at:
 | Regal Hacienda Crossings ScreenX/IMAX/RPX, Dublin CA | `aaopk` |
 
 Pushes an [ntfy.sh](https://ntfy.sh) notification, with a tap-through straight to
-the Fandango booking page, when either of these happens:
+the Fandango booking page, when **new dates go up**.
 
-- 🎟️ **New showing listed** — a showtime id appears that we've never seen.
-- 🔁 **Seats freed up** — a showtime we'd recorded as `soldout` flips back to
-  `available`. For a sold-out run this is usually the one that actually gets you
-  in, so it's alerted at the same urgency.
+Two watchers, on purpose:
+
+| | Where | Cadence | Role |
+|---|---|---|---|
+| `daemon.py` | your always-on Windows box | ~90 s | **primary** |
+| `watch.py` via Actions | GitHub | 30 min | fallback, alerts tagged `[backup]` |
+
+The fallback exists because the daemon dies with your power or your ISP. It runs
+from a different network and pings the same ntfy topic at lower priority, so a
+`[backup]` alert is also a signal that your local watcher has stopped.
+
+> **Freed seats are not alerted.** Fandango exposes a per-showtime
+> `available` / `soldout` flag, and the code can diff it, but it's off by
+> default (`ALERT_FREED=1` to enable). A showtime flipping back to `available`
+> is usually one returned seat, which is no use when you're booking for a
+> group.
 
 ## How it works
 
@@ -35,91 +47,118 @@ Each showtime carries a stable integer `id`, used as the dedup key, a `type` of
 `available` / `soldout` / `pastshowtime`, and a `ticketingJumpPageURL` that deep
 links to checkout.
 
-State lives in `state.json`, committed back to the repo by the workflow so the
-diff survives between runs.
+### Frontier polling
 
-## Setup
+Theatres publish their schedule forward in time, a batch of days at a time. So
+the daemon doesn't re-sweep the whole horizon every cycle — it watches the
+**frontier**: the first day past the last day that currently has showtimes.
 
-1. **Create the repo — make it public.** See the cost note below.
+```
+... Aug 17  Aug 18  Aug 19 │ Aug 20  Aug 21
+    showtimes listed       │ ← probe here (~4 requests/cycle)
+                     frontier
+```
 
-   ```bash
-   gh repo create odyssey-watch --public --source=. --push
-   ```
+When a probe lands, it walks forward until days come back empty again, so a
+whole newly-published week is caught in one cycle. It probes 2 days past the
+edge rather than 1, so a single dark day can't stall the frontier permanently.
 
-2. **Pick an ntfy topic.** It's a shared secret: anyone who guesses the name can
-   read your alerts, so use something unguessable.
+A **full sweep** of `today..frontier` still runs every 30 min, because a theatre
+can also add a screening to a day it already published — the frontier probe
+would never see that.
 
-   ```bash
-   # e.g. odyssey-7f3a91c2e4
-   ```
+The upshot: ~4 requests every 90 s, which is *less* traffic than the old
+21-day sweep at 10-minute intervals, while reacting roughly 10× faster.
 
-3. **Install ntfy** on your phone ([iOS](https://apps.apple.com/us/app/ntfy/id1625396347) /
-   [Android](https://play.google.com/store/apps/details?id=io.heckel.ntfy)) and
-   subscribe to that topic. Allow notifications and, on iOS, make sure the app
-   isn't throttled in the background.
+State lives in `state.json` (Actions, committed to the repo) and
+`daemon_state.json` (local, gitignored). They're independent, which is what
+makes the fallback a genuine fallback.
 
-4. **Add the topic as a repo secret:**
+## Setup — always-on Windows box (primary)
 
-   ```bash
-   gh secret set NTFY_TOPIC --body "odyssey-7f3a91c2e4"
-   ```
+```cmd
+cd C:\Users\Sam\Documents\odyssey-watch
+echo odyssey70-cec552047d> ntfy_topic.txt
+run-watcher.cmd
+```
 
-5. **Kick off the first run** from the Actions tab (or `gh workflow run
-   "Odyssey IMAX 70mm watch"`). The first run seeds `state.json` and sends a
-   single "watcher armed" message rather than alerting on every existing
-   showtime. After that it only tells you about changes.
+Leave the window open. `run-watcher.cmd` restarts the daemon if it crashes;
+closing the window stops it. `ntfy_topic.txt` is gitignored so the topic can't
+leak into the public repo.
 
-## Cost — use a public repo
+First launch seeds ~30 days, silently walks the frontier out to the true edge,
+and sends a single **👁️ watcher armed** message telling you how far the
+schedule currently runs. After that it's quiet until dates actually move.
 
-GitHub Actions minutes are free and unlimited on **public** repos. On a private
-repo this workflow would run ~144 times/day at 1–2 min each, roughly
-**6,000–9,000 minutes/month** against a 2,000-minute free allowance — so it
-would start costing real money within days. Nothing here is sensitive except the
-ntfy topic, which is a secret, so public is the right call.
+To survive reboots without logging in, register it with Task Scheduler:
 
-## Tuning
+```cmd
+schtasks /create /tn "Odyssey watcher" /tr "%CD%\run-watcher.cmd" /sc onstart /rl highest
+```
 
-Repo **variables** (`gh variable set NAME --body VALUE`):
+### Daemon tuning
 
-| Variable | Default | Meaning |
+| Env var | Default | Meaning |
 |---|---|---|
-| `DAYS_AHEAD` | `21` | How many days forward to sweep |
-| `NTFY_SERVER` | `https://ntfy.sh` | Self-hosted ntfy base URL |
+| `FRONTIER_INTERVAL` | `90` | Seconds between frontier probes |
+| `FULL_SWEEP_INTERVAL` | `1800` | Seconds between full sweeps |
+| `PROBE_LOOKAHEAD` | `2` | Days probed past the frontier |
+| `SEED_DAYS` | `30` | Horizon for the initial seed |
+| `HEARTBEAT_HOURS` | `24` | Low-priority "still alive" ping; `0` disables |
+| `ALERT_FREED` | `0` | Set `1` to also alert on soldout → available |
 
+```cmd
+python daemon.py --once --dry-run    REM single cycle, sends nothing
+```
+
+## Setup — GitHub Actions (fallback)
+
+Already live at [sgzasher/odyssey-watch](https://github.com/sgzasher/odyssey-watch)
+with `NTFY_TOPIC` set as a repo secret. It seeds `state.json` on its first run
+and sends one "watcher armed" message rather than alerting on everything already
+listed.
+
+Install ntfy on your phone ([iOS](https://apps.apple.com/us/app/ntfy/id1625396347) /
+[Android](https://play.google.com/store/apps/details?id=io.heckel.ntfy)), subscribe
+to the topic, and make sure background refresh isn't throttled.
+
+The repo is **public** deliberately: Actions minutes are free and unlimited on
+public repos, whereas on a private repo even the half-hourly fallback runs
+~2,200 min/month against a 2,000-minute allowance. The only secret is the ntfy
+topic, and that's a repo secret, not in the tree.
+
+Fallback tuning uses repo **variables** (`gh variable set NAME --body VALUE`):
+`DAYS_AHEAD` (default `21`) and `NTFY_SERVER` (default `https://ntfy.sh`).
 Optional secret `NTFY_TOKEN` sets a `Bearer` token for protected ntfy topics.
-
-Cadence is the `cron:` line in `.github/workflows/watch.yml`. Widening
-`DAYS_AHEAD` or tightening the cron multiplies request volume — 21 days is
-42 requests per sweep, which is already ~6,000 requests/day at 10-minute
-intervals. Pushing much past that raises the odds of Fandango rate-limiting the
-runner.
 
 ## Caveats worth knowing
 
-- **Scheduled runs are not punctual.** GitHub routinely delays cron workflows,
-  often by 10–20 minutes at peak, and silently skips them under heavy load. A
-  10-minute cron is a best-effort target, not a floor. If you need
-  seconds-level reaction time for an on-sale drop, this isn't the tool.
-- **Fandango could block the runner.** GitHub's IP ranges are datacenter
-  addresses, and the endpoint is undocumented and unsupported — it may start
-  403ing or change shape without notice. The script detects a sweep where every
-  request failed, keeps the old state instead of treating it as "everything
-  vanished", and pings you with a ⚠️ *watcher is blind* alert after 3
-  consecutive total failures. If you get that, check the Actions log.
-- **Sold-out detection is listing-level**, not seat-level. Fandango marks the
-  whole showtime `soldout`; it can't see a single returned seat while the
-  showtime still reads as available.
+- **The daemon is only as alive as its window.** If the box sleeps, the process
+  is killed, or Python crashes in a way the `.cmd` loop can't recover from, you
+  are relying on the half-hourly `[backup]` alerts to notice. That's what the
+  daily 💤 heartbeat is for — if it stops arriving, something is wrong.
+- **Fandango could rate-limit or change the endpoint.** It's undocumented and
+  unsupported; it may start 403ing or change shape without notice. Both watchers
+  detect a sweep where every request failed, keep the old state rather than
+  treating it as "everything vanished", and send a ⚠️ alert. Your residential IP
+  is much less exposed to this than GitHub's datacenter ranges — which is the
+  main reason the local daemon is primary.
+- **GitHub cron is not punctual.** It routinely runs late by 10–20 minutes at
+  peak and skips runs under load. Fine for a fallback; useless as a primary.
+- **Sold-out detection is listing-level**, not seat-level — Fandango marks the
+  whole showtime `soldout`, so it cannot see one returned seat. Another reason
+  `ALERT_FREED` stays off.
+- Late-night screenings are listed under the previous day, matching Fandango's
+  own presentation: a 2:45a show appears under the preceding evening's date.
 - Scheduled workflows get auto-disabled after 60 days of repo inactivity, but
-  this one commits `state.json` regularly, so it stays alive on its own.
+  the fallback commits `state.json` regularly, so it stays alive on its own.
 
 ## Local testing
 
 ```bash
-# Fast sanity check, sends nothing, writes nothing
-DAYS_AHEAD=5 python watch.py --dry-run
-
-# Rebuild state without alerting
-python watch.py --reseed
+python daemon.py --once --dry-run          # one daemon cycle, sends nothing
+DAYS_AHEAD=5 python watch.py --dry-run     # one fallback-style sweep
+python watch.py --reseed                   # rebuild fallback state, no alerts
 ```
 
 No dependencies — standard library only.

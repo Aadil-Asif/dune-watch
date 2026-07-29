@@ -1,2 +1,7 @@
 __pycache__/
 *.pyc
+
+# local daemon files - must never reach the public repo
+ntfy_topic.txt
+daemon_state.json
+daemon_state.json.tmp
