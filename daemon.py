@@ -43,8 +43,51 @@ SEED_DAYS = int(os.environ.get("SEED_DAYS", "30"))
 HEARTBEAT_HOURS = float(os.environ.get("HEARTBEAT_HOURS", "24"))
 
 STATE_PATH = os.environ.get("STATE_PATH", "daemon_state.json")
+LOG_FILE = os.environ.get("LOG_FILE", "watcher.log")
+LOG_MAX_BYTES = int(os.environ.get("LOG_MAX_BYTES", str(5 * 1024 * 1024)))
 
 _stop = False
+
+
+class Tee:
+    """Mirror stdout/stderr to a rotating file.
+
+    Under Task Scheduler there's no console, so without this the daemon runs
+    completely silently and the only sign of life is the daily heartbeat.
+    """
+
+    def __init__(self, stream, path: str):
+        self.stream = stream
+        self.path = path
+        self._fh = open(path, "a", encoding="utf-8", buffering=1)
+
+    def write(self, data: str) -> int:
+        try:
+            self.stream.write(data)
+        except Exception:  # noqa: BLE001 - no console when detached
+            pass
+        self._fh.write(data)
+        if self._fh.tell() > LOG_MAX_BYTES:
+            self._rotate()
+        return len(data)
+
+    def _rotate(self) -> None:
+        self._fh.close()
+        try:
+            os.replace(self.path, self.path + ".1")
+        except OSError:
+            pass
+        self._fh = open(self.path, "a", encoding="utf-8", buffering=1)
+
+    def flush(self) -> None:
+        try:
+            self.stream.flush()
+        except Exception:  # noqa: BLE001
+            pass
+        self._fh.flush()
+
+    def isatty(self) -> bool:
+        return False
 
 
 def _handle_stop(signum, frame):  # noqa: ARG001
@@ -178,9 +221,14 @@ def main() -> int:
                     help="run a single frontier probe and exit")
     args = ap.parse_args()
 
+    if LOG_FILE:
+        sys.stdout = Tee(sys.stdout, LOG_FILE)
+        sys.stderr = Tee(sys.stderr, LOG_FILE)
+
     signal.signal(signal.SIGINT, _handle_stop)
     signal.signal(signal.SIGTERM, _handle_stop)
 
+    log(f"=== daemon start (pid {os.getpid()}) ===")
     state = load_state()
 
     if not state.get("seeded"):

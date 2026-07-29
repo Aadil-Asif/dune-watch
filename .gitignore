@@ -5,3 +5,5 @@ __pycache__/
 ntfy_topic.txt
 daemon_state.json
 daemon_state.json.tmp
+watcher.log
+watcher.log.1
