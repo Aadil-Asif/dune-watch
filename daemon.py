@@ -40,7 +40,13 @@ PROBE_LOOKAHEAD = int(os.environ.get("PROBE_LOOKAHEAD", "2"))
 # Cap on how far one cycle will walk forward after a hit.
 MAX_WALK = int(os.environ.get("MAX_WALK", "10"))
 SEED_DAYS = int(os.environ.get("SEED_DAYS", "30"))
+# The full sweep always covers at least this far out, even if the frontier is
+# behind it. Without this, a theatre whose schedule has a gap wider than
+# PROBE_LOOKAHEAD would stall its frontier and go permanently blind.
+MIN_SWEEP_DAYS = int(os.environ.get("MIN_SWEEP_DAYS", "30"))
 HEARTBEAT_HOURS = float(os.environ.get("HEARTBEAT_HOURS", "24"))
+# Ping on every start, so relaunching is visibly confirmed. Set 0 to disable.
+STARTUP_PING = os.environ.get("STARTUP_PING", "1") not in ("0", "", "false", "no")
 
 STATE_PATH = os.environ.get("STATE_PATH", "daemon_state.json")
 LOG_FILE = os.environ.get("LOG_FILE", "watcher.log")
@@ -132,6 +138,13 @@ def frontier_for(state: dict, key: str) -> date:
     return d(raw) if raw else date.today() - timedelta(days=1)
 
 
+def edge_summary(state: dict, sep: str = "\n") -> str:
+    """How far each theatre's schedule currently runs."""
+    return sep.join(
+        f"{t['name']}: {state['frontier'].get(t['key'], 'none')}" for t in W.TARGETS
+    )
+
+
 def record(state: dict, hits: dict[str, dict]) -> list[dict]:
     """Merge hits into state; return those we'd never seen before."""
     fresh = []
@@ -192,7 +205,8 @@ def full_sweep(state: dict, days_ahead: int | None = None) -> list[dict]:
         if days_ahead is not None:
             last = today + timedelta(days=days_ahead)
         else:
-            last = max(frontier_for(state, key), today)
+            last = max(frontier_for(state, key),
+                       today + timedelta(days=MIN_SWEEP_DAYS))
         day = today
         while day <= last and not _stop:
             got = probe_day(target, day)
@@ -243,17 +257,22 @@ def main() -> int:
         state["seeded"] = True
         prune(state)
         save_state(state)
-        edges = ", ".join(
-            f"{t['name'].split(' (')[0]} -> {state['frontier'].get(t['key'], 'none')}"
-            for t in W.TARGETS
-        )
-        log(f"Seeded {len(state['showtimes'])} showtime(s). Frontier: {edges}")
+        log(f"Seeded {len(state['showtimes'])} showtime(s). "
+            f"Frontier: {edge_summary(state, sep=', ')}")
         W.notify(
             "👁️ Odyssey watcher armed",
             f"Tracking {len(state['showtimes'])} IMAX 70mm showtime(s).\n"
-            f"Schedule currently runs to:\n{edges}\n"
+            f"Schedule currently runs to:\n{edge_summary(state)}\n\n"
             "You'll get a ping the moment new dates go up.",
             priority=3, tags=["eye"], dry_run=args.dry_run,
+        )
+    elif STARTUP_PING:
+        # Restart confirmation, so relaunching after a reboot visibly works.
+        W.notify(
+            "▶️ Odyssey watcher started",
+            f"Tracking {len(state['showtimes'])} IMAX 70mm showtime(s).\n"
+            f"Schedule currently runs to:\n{edge_summary(state)}",
+            priority=3, tags=["arrow_forward"], dry_run=args.dry_run,
         )
 
     log(f"Watching. Frontier probe every {FRONTIER_INTERVAL}s, "
@@ -303,12 +322,8 @@ def main() -> int:
 
         if HEARTBEAT_HOURS and time.monotonic() - last_beat >= HEARTBEAT_HOURS * 3600:
             last_beat = time.monotonic()
-            edges = ", ".join(
-                f"{t['key']}->{state['frontier'].get(t['key'], 'none')}"
-                for t in W.TARGETS
-            )
             W.notify("💤 Odyssey watcher alive",
-                     f"Still running. Schedule edge: {edges}",
+                     f"Still running. Schedule runs to:\n{edge_summary(state)}",
                      priority=1, tags=["zzz"], dry_run=args.dry_run)
 
         # Back off hard if we're failing; otherwise jitter so we're not a

@@ -132,10 +132,18 @@ def extract(view_model: dict, target: dict, day: str) -> dict[str, dict]:
                     status = show.get("type") or "unknown"
                     if status == "pastshowtime" or show.get("expired"):
                         continue
-                    sid = show.get("id")
-                    if sid is None:
+                    # Not `id`: Fandango returns id=null for some listings
+                    # (all of Metreon's 70mm at time of writing) and has been
+                    # seen to flip it between null and a value for the same
+                    # showtime. ticketingDate ("2026-08-15+10:00") is stable
+                    # and unique per theatre/slot, so it can't drop a screening
+                    # or re-announce one as new.
+                    slot = (show.get("ticketingDate")
+                            or show.get("showtimeHashCode")
+                            or show.get("id"))
+                    if slot is None:
                         continue
-                    found[f"{target['key']}:{sid}"] = {
+                    found[f"{target['key']}:{slot}"] = {
                         "theater": target["name"],
                         "theater_key": target["key"],
                         "title": movie.get("title") or "The Odyssey",

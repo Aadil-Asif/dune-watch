@@ -43,9 +43,16 @@ request per theater per day.
 Within the payload, the real 15/70 film screenings are the showtimes whose
 `filmFormat[].filterName` is `IMAX 70MM` (the `filmFormatHeader` field just says
 "Premium Format", and a plain `IMAX` tag means digital IMAX — not what you want).
-Each showtime carries a stable integer `id`, used as the dedup key, a `type` of
-`available` / `soldout` / `pastshowtime`, and a `ticketingJumpPageURL` that deep
-links to checkout.
+Each showtime carries a `type` of `available` / `soldout` / `pastshowtime` and a
+`ticketingJumpPageURL` that deep links to checkout.
+
+**Dedup is keyed on `ticketingDate`, not `id`.** The obvious key is the integer
+`id`, but Fandango returns `id: null` for some listings — at time of writing,
+every one of Metreon's 70mm showtimes — and has been observed flipping the same
+showtime between a real id and null within an hour. Keying on `id` silently
+dropped the entire SF theatre, and would also have re-announced showtimes as
+"new" each time the id came back. `ticketingDate` (`2026-08-15+10:00`) is stable
+and unique per theatre slot.
 
 ### Frontier polling
 
@@ -88,7 +95,9 @@ leak into the public repo.
 
 First launch seeds ~30 days, silently walks the frontier out to the true edge,
 and sends a single **👁️ watcher armed** message telling you how far the
-schedule currently runs. After that it's quiet until dates actually move.
+schedule currently runs. Every subsequent start sends **▶️ watcher started**
+with the same summary, so relaunching after a reboot is visibly confirmed.
+After that it's quiet until dates actually move.
 
 To survive reboots without logging in, register it with Task Scheduler:
 
@@ -104,6 +113,8 @@ schtasks /create /tn "Odyssey watcher" /tr "%CD%\run-watcher.cmd" /sc onstart /r
 | `FULL_SWEEP_INTERVAL` | `1800` | Seconds between full sweeps |
 | `PROBE_LOOKAHEAD` | `2` | Days probed past the frontier |
 | `SEED_DAYS` | `30` | Horizon for the initial seed |
+| `MIN_SWEEP_DAYS` | `30` | Full sweep always covers at least this far out |
+| `STARTUP_PING` | `1` | Ping on every start; `0` disables |
 | `HEARTBEAT_HOURS` | `24` | Low-priority "still alive" ping; `0` disables |
 | `ALERT_FREED` | `0` | Set `1` to also alert on soldout → available |
 
