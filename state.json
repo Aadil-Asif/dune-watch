@@ -1,6 +1,6 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-07-30T02:27:45+00:00",
+  "last_run": "2026-07-30T05:25:24+00:00",
   "seeded": true,
   "showtimes": {
     "hacienda:2026-07-30+11:00": {
@@ -950,7 +950,7 @@
     },
     "metreon:2026-08-02+22:00": {
       "date": "2026-08-02",
-      "status": "soldout",
+      "status": "available",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
