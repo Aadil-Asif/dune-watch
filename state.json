@@ -1,6 +1,6 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-07-31T04:00:58+00:00",
+  "last_run": "2026-07-31T07:22:30+00:00",
   "seeded": true,
   "showtimes": {
     "hacienda:2026-07-31+07:10": {
@@ -374,7 +374,7 @@
     },
     "hacienda:2026-08-09+10:15": {
       "date": "2026-08-09",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "10:15a",
@@ -887,7 +887,7 @@
     },
     "metreon:2026-08-02+14:00": {
       "date": "2026-08-02",
-      "status": "soldout",
+      "status": "available",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -905,7 +905,7 @@
     },
     "metreon:2026-08-02+22:00": {
       "date": "2026-08-02",
-      "status": "available",
+      "status": "soldout",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
