@@ -1,26 +1,8 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-08-02T23:33:19+00:00",
+  "last_run": "2026-08-03T02:51:48+00:00",
   "seeded": true,
   "showtimes": {
-    "hacienda:2026-08-02+18:50": {
-      "date": "2026-08-02",
-      "status": "soldout",
-      "theater": "Regal Hacienda Crossings (Dublin)",
-      "theater_key": "hacienda",
-      "time": "6:50p",
-      "title": "The Odyssey (2026)",
-      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-02%2B18%3A50&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-5fa1c4caa423bad53a62f91d640c2ad6c313c0eb82cab38bf60d887b1cbdeba0"
-    },
-    "hacienda:2026-08-02+22:50": {
-      "date": "2026-08-02",
-      "status": "soldout",
-      "theater": "Regal Hacienda Crossings (Dublin)",
-      "theater_key": "hacienda",
-      "time": "10:50p",
-      "title": "The Odyssey (2026)",
-      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-02%2B22%3A50&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-66cf5dc3404ba05a0dc099b8da6bb09d457c8d3657467ba3796d7d80d66dce5c"
-    },
     "hacienda:2026-08-03+10:50": {
       "date": "2026-08-03",
       "status": "soldout",
@@ -741,6 +723,42 @@
       "title": "The Odyssey (2026)",
       "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-22%2B22%3A10&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-8a767a87cc2832ca1a389289b9569b94c1fdce24591438eca0def75922430188"
     },
+    "hacienda:2026-08-23+10:10": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "Regal Hacienda Crossings (Dublin)",
+      "theater_key": "hacienda",
+      "time": "10:10a",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B10%3A10&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-c51d54e9007afd75792b4944fd5d484f67e5a726700e028ffa89e88c9db347be"
+    },
+    "hacienda:2026-08-23+14:10": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "Regal Hacienda Crossings (Dublin)",
+      "theater_key": "hacienda",
+      "time": "2:10p",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B14%3A10&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-63cddafdd1e35f47e7e40d3055977acadcf2b3789e3da55a99bd2873201d878c"
+    },
+    "hacienda:2026-08-23+18:10": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "Regal Hacienda Crossings (Dublin)",
+      "theater_key": "hacienda",
+      "time": "6:10p",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B18%3A10&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-4c1dce022f4eb01f445a485eee34a154c45127a5b990142a2c2291e5d9fd40a5"
+    },
+    "hacienda:2026-08-23+22:10": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "Regal Hacienda Crossings (Dublin)",
+      "theater_key": "hacienda",
+      "time": "10:10p",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B22%3A10&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-836ef565c3e62750f83d392bcc45fdb94d9f802bb529cf29111fead72ad6f59f"
+    },
     "metreon:2026-08-03+10:00": {
       "date": "2026-08-03",
       "status": "available",
@@ -1451,6 +1469,42 @@
       "time": "10:00p",
       "title": "The Odyssey (2026)",
       "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-22%2B22%3A00&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aanem&dfam=webbrowser&showtimehashcode=v2-132cd485168d8d4fb248b7c27a7863cf90a57318970ac86c61d8e962cabccfbb"
+    },
+    "metreon:2026-08-23+10:00": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "AMC Metreon 16 (SF)",
+      "theater_key": "metreon",
+      "time": "10:00a",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B10%3A00&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aanem&dfam=webbrowser&showtimehashcode=v2-a91c204d9a3def4383ea77e443e90838b39e61524f7816380be6a0b7098c7168"
+    },
+    "metreon:2026-08-23+14:00": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "AMC Metreon 16 (SF)",
+      "theater_key": "metreon",
+      "time": "2:00p",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B14%3A00&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aanem&dfam=webbrowser&showtimehashcode=v2-6dd1dab8a91eccc88b72a246fa2f0fbc0fce5286c1e4da476bbb441802e89c92"
+    },
+    "metreon:2026-08-23+18:00": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "AMC Metreon 16 (SF)",
+      "theater_key": "metreon",
+      "time": "6:00p",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B18%3A00&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aanem&dfam=webbrowser&showtimehashcode=v2-21fc0d638caf9735f6f8b70cea1d158e460a881dc7d8e77d7e847ffb42026305"
+    },
+    "metreon:2026-08-23+22:00": {
+      "date": "2026-08-23",
+      "status": "available",
+      "theater": "AMC Metreon 16 (SF)",
+      "theater_key": "metreon",
+      "time": "10:00p",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-23%2B22%3A00&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aanem&dfam=webbrowser&showtimehashcode=v2-dc4fb9d46cea9ae8730e6a963c6ce5730b32956e5e1fa4173069cad23f986352"
     }
   },
   "version": 1
