@@ -1,6 +1,6 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-08-05T05:47:06+00:00",
+  "last_run": "2026-08-05T08:37:21+00:00",
   "seeded": true,
   "showtimes": {
     "hacienda:2026-08-05+10:50": {
@@ -75,6 +75,15 @@
       "title": "The Odyssey (2026)",
       "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-06%2B22%3A50&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-74863da4aa237d712e051f1384ecc39d1e7ddbfe18a16f42ef3f2a441e1fc98b"
     },
+    "hacienda:2026-08-07+06:30": {
+      "date": "2026-08-07",
+      "status": "available",
+      "theater": "Regal Hacienda Crossings (Dublin)",
+      "theater_key": "hacienda",
+      "time": "6:30a",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-07%2B06%3A30&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-52555e3227b2ddaa918942220c35c1dc468230dbfca063a17568bbb3f1782cba"
+    },
     "hacienda:2026-08-07+10:15": {
       "date": "2026-08-07",
       "status": "soldout",
@@ -110,6 +119,15 @@
       "time": "10:15p",
       "title": "The Odyssey (2026)",
       "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-07%2B22%3A15&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-09a50eef1262de61dc64dc0179e461fe11dcd8f9259a6197148359e20ab30951"
+    },
+    "hacienda:2026-08-08+06:30": {
+      "date": "2026-08-08",
+      "status": "available",
+      "theater": "Regal Hacienda Crossings (Dublin)",
+      "theater_key": "hacienda",
+      "time": "6:30a",
+      "title": "The Odyssey (2026)",
+      "url": "https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-08-08%2B06%3A30&from=mov_det_showtimes&source=MobileWeb&mid=241386&tid=aaopk&dfam=webbrowser&showtimehashcode=v2-46ec706e8877bd43baab15a96e1b443d4092c756a9089abbc2bc48a2ecdca849"
     },
     "hacienda:2026-08-08+10:15": {
       "date": "2026-08-08",
@@ -842,7 +860,7 @@
     },
     "metreon:2026-08-07+14:00": {
       "date": "2026-08-07",
-      "status": "restricted",
+      "status": "available",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
