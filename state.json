@@ -1,11 +1,11 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-08-09T03:43:46+00:00",
+  "last_run": "2026-08-09T05:05:42+00:00",
   "seeded": true,
   "showtimes": {
     "hacienda:2026-08-09+06:30": {
       "date": "2026-08-09",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "6:30a",
@@ -77,7 +77,7 @@
     },
     "hacienda:2026-08-10+22:50": {
       "date": "2026-08-10",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "10:50p",
@@ -95,7 +95,7 @@
     },
     "hacienda:2026-08-11+14:50": {
       "date": "2026-08-11",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "2:50p",
@@ -131,7 +131,7 @@
     },
     "hacienda:2026-08-12+14:15": {
       "date": "2026-08-12",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "2:15p",
@@ -212,7 +212,7 @@
     },
     "hacienda:2026-08-14+18:40": {
       "date": "2026-08-14",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "6:40p",
@@ -230,7 +230,7 @@
     },
     "hacienda:2026-08-15+11:00": {
       "date": "2026-08-15",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "11:00a",
@@ -239,7 +239,7 @@
     },
     "hacienda:2026-08-15+14:50": {
       "date": "2026-08-15",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "2:50p",
@@ -248,7 +248,7 @@
     },
     "hacienda:2026-08-15+18:40": {
       "date": "2026-08-15",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "6:40p",
@@ -275,7 +275,7 @@
     },
     "hacienda:2026-08-16+14:50": {
       "date": "2026-08-16",
-      "status": "available",
+      "status": "soldout",
       "theater": "Regal Hacienda Crossings (Dublin)",
       "theater_key": "hacienda",
       "time": "2:50p",
