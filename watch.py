@@ -198,6 +198,12 @@ def main():
     # Update state
     state["showtimes"] = {showtime_key: current_showtime}
     save_state(state)
+    # TEST MODE: Send a test notification
+if os.getenv("TEST_MODE") == "true":
+    send_notification(
+        "🧪 TEST NOTIFICATION",
+        "If you're reading this, notifications are working!"
+    )
     print("\n✅ Check complete\n")
 
 if __name__ == "__main__":
