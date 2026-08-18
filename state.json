@@ -1,6 +1,6 @@
 {
   "consecutive_failures": 0,
-  "last_run": "2026-08-18T15:32:57+00:00",
+  "last_run": "2026-08-18T16:32:33+00:00",
   "seeded": true,
   "showtimes": {
     "hacienda:2026-08-18+11:20": {
@@ -743,7 +743,7 @@
     },
     "metreon:2026-08-18+10:00": {
       "date": "2026-08-18",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -752,7 +752,7 @@
     },
     "metreon:2026-08-18+14:00": {
       "date": "2026-08-18",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -761,7 +761,7 @@
     },
     "metreon:2026-08-18+18:00": {
       "date": "2026-08-18",
-      "status": "soldout",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -770,7 +770,7 @@
     },
     "metreon:2026-08-18+22:00": {
       "date": "2026-08-18",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -779,7 +779,7 @@
     },
     "metreon:2026-08-19+10:00": {
       "date": "2026-08-19",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -788,7 +788,7 @@
     },
     "metreon:2026-08-19+14:00": {
       "date": "2026-08-19",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -797,7 +797,7 @@
     },
     "metreon:2026-08-19+18:00": {
       "date": "2026-08-19",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -806,7 +806,7 @@
     },
     "metreon:2026-08-19+22:00": {
       "date": "2026-08-19",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -815,7 +815,7 @@
     },
     "metreon:2026-08-20+10:00": {
       "date": "2026-08-20",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -824,7 +824,7 @@
     },
     "metreon:2026-08-20+14:00": {
       "date": "2026-08-20",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -833,7 +833,7 @@
     },
     "metreon:2026-08-20+18:00": {
       "date": "2026-08-20",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -842,7 +842,7 @@
     },
     "metreon:2026-08-20+22:00": {
       "date": "2026-08-20",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -851,7 +851,7 @@
     },
     "metreon:2026-08-21+10:00": {
       "date": "2026-08-21",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -860,7 +860,7 @@
     },
     "metreon:2026-08-21+14:00": {
       "date": "2026-08-21",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -869,7 +869,7 @@
     },
     "metreon:2026-08-21+18:00": {
       "date": "2026-08-21",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -878,7 +878,7 @@
     },
     "metreon:2026-08-21+22:00": {
       "date": "2026-08-21",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -887,7 +887,7 @@
     },
     "metreon:2026-08-22+10:00": {
       "date": "2026-08-22",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -896,7 +896,7 @@
     },
     "metreon:2026-08-22+14:00": {
       "date": "2026-08-22",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -905,7 +905,7 @@
     },
     "metreon:2026-08-22+18:00": {
       "date": "2026-08-22",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -914,7 +914,7 @@
     },
     "metreon:2026-08-22+22:00": {
       "date": "2026-08-22",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -923,7 +923,7 @@
     },
     "metreon:2026-08-23+10:00": {
       "date": "2026-08-23",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -932,7 +932,7 @@
     },
     "metreon:2026-08-23+14:00": {
       "date": "2026-08-23",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -941,7 +941,7 @@
     },
     "metreon:2026-08-23+18:00": {
       "date": "2026-08-23",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -950,7 +950,7 @@
     },
     "metreon:2026-08-23+22:00": {
       "date": "2026-08-23",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -959,7 +959,7 @@
     },
     "metreon:2026-08-24+10:00": {
       "date": "2026-08-24",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -968,7 +968,7 @@
     },
     "metreon:2026-08-24+14:00": {
       "date": "2026-08-24",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -977,7 +977,7 @@
     },
     "metreon:2026-08-24+18:00": {
       "date": "2026-08-24",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -986,7 +986,7 @@
     },
     "metreon:2026-08-24+22:00": {
       "date": "2026-08-24",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -995,7 +995,7 @@
     },
     "metreon:2026-08-25+10:00": {
       "date": "2026-08-25",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1004,7 +1004,7 @@
     },
     "metreon:2026-08-25+14:00": {
       "date": "2026-08-25",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1013,7 +1013,7 @@
     },
     "metreon:2026-08-25+18:00": {
       "date": "2026-08-25",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1022,7 +1022,7 @@
     },
     "metreon:2026-08-25+22:00": {
       "date": "2026-08-25",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1031,7 +1031,7 @@
     },
     "metreon:2026-08-26+10:00": {
       "date": "2026-08-26",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1040,7 +1040,7 @@
     },
     "metreon:2026-08-26+14:00": {
       "date": "2026-08-26",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1049,7 +1049,7 @@
     },
     "metreon:2026-08-26+18:00": {
       "date": "2026-08-26",
-      "status": "soldout",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1058,7 +1058,7 @@
     },
     "metreon:2026-08-26+22:00": {
       "date": "2026-08-26",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1067,7 +1067,7 @@
     },
     "metreon:2026-08-27+10:00": {
       "date": "2026-08-27",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1076,7 +1076,7 @@
     },
     "metreon:2026-08-27+14:00": {
       "date": "2026-08-27",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1085,7 +1085,7 @@
     },
     "metreon:2026-08-27+18:00": {
       "date": "2026-08-27",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1094,7 +1094,7 @@
     },
     "metreon:2026-08-27+22:00": {
       "date": "2026-08-27",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1103,7 +1103,7 @@
     },
     "metreon:2026-08-28+10:00": {
       "date": "2026-08-28",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1112,7 +1112,7 @@
     },
     "metreon:2026-08-28+14:00": {
       "date": "2026-08-28",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1121,7 +1121,7 @@
     },
     "metreon:2026-08-28+18:00": {
       "date": "2026-08-28",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1130,7 +1130,7 @@
     },
     "metreon:2026-08-28+22:00": {
       "date": "2026-08-28",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1139,7 +1139,7 @@
     },
     "metreon:2026-08-29+10:00": {
       "date": "2026-08-29",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1148,7 +1148,7 @@
     },
     "metreon:2026-08-29+14:00": {
       "date": "2026-08-29",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1157,7 +1157,7 @@
     },
     "metreon:2026-08-29+18:00": {
       "date": "2026-08-29",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1166,7 +1166,7 @@
     },
     "metreon:2026-08-29+22:00": {
       "date": "2026-08-29",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1175,7 +1175,7 @@
     },
     "metreon:2026-08-30+10:00": {
       "date": "2026-08-30",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1184,7 +1184,7 @@
     },
     "metreon:2026-08-30+14:00": {
       "date": "2026-08-30",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1193,7 +1193,7 @@
     },
     "metreon:2026-08-30+18:00": {
       "date": "2026-08-30",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1202,7 +1202,7 @@
     },
     "metreon:2026-08-30+22:00": {
       "date": "2026-08-30",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1211,7 +1211,7 @@
     },
     "metreon:2026-08-31+10:00": {
       "date": "2026-08-31",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1220,7 +1220,7 @@
     },
     "metreon:2026-08-31+14:00": {
       "date": "2026-08-31",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1229,7 +1229,7 @@
     },
     "metreon:2026-08-31+18:00": {
       "date": "2026-08-31",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1238,7 +1238,7 @@
     },
     "metreon:2026-08-31+22:00": {
       "date": "2026-08-31",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1247,7 +1247,7 @@
     },
     "metreon:2026-09-01+10:00": {
       "date": "2026-09-01",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1256,7 +1256,7 @@
     },
     "metreon:2026-09-01+14:00": {
       "date": "2026-09-01",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1265,7 +1265,7 @@
     },
     "metreon:2026-09-01+18:00": {
       "date": "2026-09-01",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1274,7 +1274,7 @@
     },
     "metreon:2026-09-01+22:00": {
       "date": "2026-09-01",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1283,7 +1283,7 @@
     },
     "metreon:2026-09-02+10:00": {
       "date": "2026-09-02",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1292,7 +1292,7 @@
     },
     "metreon:2026-09-02+14:00": {
       "date": "2026-09-02",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1301,7 +1301,7 @@
     },
     "metreon:2026-09-02+18:00": {
       "date": "2026-09-02",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1310,7 +1310,7 @@
     },
     "metreon:2026-09-02+22:00": {
       "date": "2026-09-02",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1319,7 +1319,7 @@
     },
     "metreon:2026-09-03+10:00": {
       "date": "2026-09-03",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1328,7 +1328,7 @@
     },
     "metreon:2026-09-03+14:00": {
       "date": "2026-09-03",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1337,7 +1337,7 @@
     },
     "metreon:2026-09-03+18:00": {
       "date": "2026-09-03",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1346,7 +1346,7 @@
     },
     "metreon:2026-09-03+22:00": {
       "date": "2026-09-03",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1355,7 +1355,7 @@
     },
     "metreon:2026-09-04+10:00": {
       "date": "2026-09-04",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1364,7 +1364,7 @@
     },
     "metreon:2026-09-04+14:00": {
       "date": "2026-09-04",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1373,7 +1373,7 @@
     },
     "metreon:2026-09-04+18:00": {
       "date": "2026-09-04",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1382,7 +1382,7 @@
     },
     "metreon:2026-09-04+22:00": {
       "date": "2026-09-04",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1391,7 +1391,7 @@
     },
     "metreon:2026-09-05+10:00": {
       "date": "2026-09-05",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1400,7 +1400,7 @@
     },
     "metreon:2026-09-05+14:00": {
       "date": "2026-09-05",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1409,7 +1409,7 @@
     },
     "metreon:2026-09-05+18:00": {
       "date": "2026-09-05",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1418,7 +1418,7 @@
     },
     "metreon:2026-09-05+22:00": {
       "date": "2026-09-05",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
@@ -1427,7 +1427,7 @@
     },
     "metreon:2026-09-06+10:30": {
       "date": "2026-09-06",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:30a",
@@ -1436,7 +1436,7 @@
     },
     "metreon:2026-09-06+14:30": {
       "date": "2026-09-06",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:30p",
@@ -1445,7 +1445,7 @@
     },
     "metreon:2026-09-06+18:30": {
       "date": "2026-09-06",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:30p",
@@ -1454,7 +1454,7 @@
     },
     "metreon:2026-09-06+22:30": {
       "date": "2026-09-06",
-      "status": "available",
+      "status": "restricted",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:30p",
@@ -1463,7 +1463,7 @@
     },
     "metreon:2026-09-07+10:00": {
       "date": "2026-09-07",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00a",
@@ -1472,7 +1472,7 @@
     },
     "metreon:2026-09-07+14:00": {
       "date": "2026-09-07",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "2:00p",
@@ -1481,7 +1481,7 @@
     },
     "metreon:2026-09-07+18:00": {
       "date": "2026-09-07",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "6:00p",
@@ -1490,7 +1490,7 @@
     },
     "metreon:2026-09-07+22:00": {
       "date": "2026-09-07",
-      "status": "available",
+      "status": "disabled",
       "theater": "AMC Metreon 16 (SF)",
       "theater_key": "metreon",
       "time": "10:00p",
