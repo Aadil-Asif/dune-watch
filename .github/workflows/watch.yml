@@ -45,6 +45,7 @@ jobs:
           NTFY_SERVER: ${{ vars.NTFY_SERVER || 'https://ntfy.sh' }}
           DAYS_AHEAD: ${{ vars.DAYS_AHEAD || '21' }}
           WATCHER_LABEL: backup
+          TEST_MODE: ${{ secrets.TEST_MODE || '' }}
         run: |
           python watch.py \
             ${{ inputs.reseed && '--reseed' || '' }} \
